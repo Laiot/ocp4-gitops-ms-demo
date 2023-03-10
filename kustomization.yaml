@@ -1,0 +1,12 @@
+resources:
+- machineset.yaml 
+
+patches:
+  - patch: |-
+      - op: add
+        path: /metadata/name
+        value: <infrastructure_id>-<role>
+    target:
+      group: machine.openshift.io
+      kind: MachineSet
+      name: example-worker
